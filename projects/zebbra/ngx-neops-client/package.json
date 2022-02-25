@@ -6,7 +6,8 @@
     "@angular/core": "^13.1.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@zebbra/neops-angular-graphql-client": "^0.0.1"
   },
   "keywords": [
     "neops"
