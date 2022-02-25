@@ -2,6 +2,28 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@zebbra/ngx-neops-app-components": [
+        "dist/zebbra/ngx-neops-app-components/zebbra-ngx-neops-app-components",
+        "dist/zebbra/ngx-neops-app-components"
+      ],
+      "@zebbra/ngx-neops-app-services": [
+        "dist/zebbra/ngx-neops-app-services/zebbra-ngx-neops-app-services",
+        "dist/zebbra/ngx-neops-app-services"
+      ],
+      "@zebbra/ngx-neops-client": [
+        "dist/zebbra/ngx-neops-client/zebbra-ngx-neops-client",
+        "dist/zebbra/ngx-neops-client"
+      ],
+      "@zebbra/ngx-neops-dashboard": [
+        "dist/zebbra/ngx-neops-dashboard/zebbra-ngx-neops-dashboard",
+        "dist/zebbra/ngx-neops-dashboard"
+      ],
+      "@zebbra/ngx-neops-generic-table": [
+        "dist/zebbra/ngx-neops-generic-table/zebbra-ngx-neops-generic-table",
+        "dist/zebbra/ngx-neops-generic-table"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
