@@ -7,5 +7,13 @@
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "keywords": [
+    "neops"
+  ],
+  "author": "Zebbra AG",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": "git://github.com/zebbra/neops-web-sdk.git"
 }
