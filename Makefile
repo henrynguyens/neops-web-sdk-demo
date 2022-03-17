@@ -5,12 +5,12 @@ libraries:
 		ng build @zebbra/ngx-neops-dashboard
 		ng build @zebbra/ngx-neops-generic-table
 
-publish:
+dry-publish:
 
-		(cd dist/zebbra/ngx-neops-app-components && npm publish)
-		(cd dist/zebbra/ngx-neops-app-services && npm publish)
-		(cd dist/zebbra/ngx-neops-client && npm publish)
-		(cd dist/zebbra/ngx-neops-dashboard && npm publish)
-		(cd dist/zebbra/ngx-neops-generic-table && npm publish)
+		(cd dist/zebbra/ngx-neops-app-components && npm publish --dry-run)
+		(cd dist/zebbra/ngx-neops-app-services && npm publish --dry-run)
+		(cd dist/zebbra/ngx-neops-client && npm publish --dry-run)
+		(cd dist/zebbra/ngx-neops-dashboard && npm publish --dry-run)
+		(cd dist/zebbra/ngx-neops-generic-table && npm publish --dry-run)
 
 
