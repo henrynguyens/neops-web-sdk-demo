@@ -51,8 +51,7 @@ name: publish
 
 
 trigger:
-  event: [push, pull_request, tags]
-  branch: [main, develop, refs/tags/*]
+  event: [tag]
 
 depends_on:
   - build
