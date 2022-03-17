@@ -1,6 +1,6 @@
 {
   "name": "@zebbra/ngx-neops-client",
-  "version": "0.0.1",
+  "version": "version_undefined",
   "peerDependencies": {
     "@angular/common": "^13.1.0",
     "@angular/core": "^13.1.0",
@@ -16,5 +16,5 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "repository": "git://github.com/zebbra/neops-web-sdk.git"
+  "repository": "git://github.com/zebbra/neops-registry-npm.git"
 }
