@@ -94,7 +94,7 @@ steps:
       token: { from_secret: npm_token }
       email: release@neops.io
       registry: "https://npm.pkg.github.com"
-      folder: zebbra/ngx-neops-app-components
+      folder: dist/zebbra/ngx-neops-app-components
     depends_on: [make]
 
   - name: ngx-neops-app-services
@@ -105,7 +105,7 @@ steps:
       token: { from_secret: npm_token }
       email: release@neops.io
       registry: "https://npm.pkg.github.com"
-      folder: zebbra/ngx-neops-app-services
+      folder: dist/zebbra/ngx-neops-app-services
     depends_on: [make]
 
   - name: ngx-neops-client
@@ -116,7 +116,7 @@ steps:
       token: { from_secret: npm_token }
       email: release@neops.io
       registry: "https://npm.pkg.github.com"
-      folder: zebbra/ngx-neops-client
+      folder: dist/zebbra/ngx-neops-client
     depends_on: [make]
 
   - name: ngx-neops-dashboard
@@ -127,7 +127,7 @@ steps:
       token: { from_secret: npm_token }
       email: release@neops.io
       registry: "https://npm.pkg.github.com"
-      folder: zebbra/ngx-neops-dashboard
+      folder: dist/zebbra/ngx-neops-dashboard
     depends_on: [make]
 
   - name: ngx-neops-generic-table
@@ -138,5 +138,5 @@ steps:
       token: { from_secret: npm_token }
       email: release@neops.io
       registry: "https://npm.pkg.github.com"
-      folder: zebbra/ngx-neops-generic-table
+      folder: dist/zebbra/ngx-neops-generic-table
     depends_on: [make]
