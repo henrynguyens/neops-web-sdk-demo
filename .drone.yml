@@ -78,10 +78,12 @@ steps:
     environment:
       NEOPS_VERSION: ${DRONE_TAG}
     commands:
-      - find -maxdepth 4 -path "./projects/*" -name "package.json" | while read file; do sed "s|version_undefined|${NEOPS_VERSION}|g" -i $file; done
-      - make libraries
-      - echo "Built Version ${NEOPS_VERSION##v}"
+#      - find -maxdepth 4 -path "./projects/*" -name "package.json" | while read file; do sed "s|version_undefined|${NEOPS_VERSION}|g" -i $file; done
+#      - make libraries
+#      - echo "Built Version ${NEOPS_VERSION##v}"
+      - echo "Hello world"
     depends_on: [imagebuild]
+
 
   - name: ngx-neops-app-components
     image: plugins/npm
