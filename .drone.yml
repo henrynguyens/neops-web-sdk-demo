@@ -78,10 +78,9 @@ steps:
     environment:
       NEOPS_VERSION: ${DRONE_TAG}
     commands:
-#      - find -maxdepth 4 -path "./projects/*" -name "package.json" | while read file; do sed "s|version_undefined|${NEOPS_VERSION}|g" -i $file; done
-#      - make libraries
-#      - echo "Built Version ${NEOPS_VERSION##v}"
-      - echo "Hello world"
+      - find -maxdepth 4 -path "./projects/*" -name "package.json" | while read file; do sed "s|version_undefined|${DRONE_TAG##v}|g" -i $file; done
+      - make libraries
+      - echo "Built Version ${DRONE_TAG##v}"
     depends_on: [imagebuild]
 
 
