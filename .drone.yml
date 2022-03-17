@@ -32,7 +32,9 @@ steps:
       insecure: true
       repo: quay.io/zebbra/neops-web-sdk
       purge: false
-      tags: latest
+      tags:
+        - latest
+        - ${DRONE_COMMIT_SHA:0:7}
       username: { from_secret: quay_username }
       password: { from_secret: quay_password }
       build_args:
@@ -41,3 +43,98 @@ steps:
         - quay.io/zebbra/neops-web-sdk
         - quay.io/zebbra/neops-web-sdk:builder
 
+---
+
+kind: pipeline
+type: kubernetes
+name: publish
+
+
+trigger:
+  event: [push, pull_request, tags]
+  branch: [main, develop, refs/tags/*]
+
+depends_on:
+  - build
+
+steps:
+  - name: imagebuild
+    image: plugins/docker
+    settings:
+      username: { from_secret: quay_username }
+      password: { from_secret: quay_password }
+      registry: quay.io
+      repo: quay.io/zebbra/neops-web-sdk
+      # tags: "${DRONE_TAG}"
+      build_args:
+        - NEOPS_VERSION=${DRONE_TAG}
+      auto_tag: true
+      cache_from:
+        - quay.io/zebbra/neops-web-sdk:builder
+        - quay.io/zebbra/neops-web-sdk:${DRONE_COMMIT_SHA:0:7}
+      mtu: 1316
+
+  - name: make
+    image: node:16
+    environment:
+      NEOPS_VERSION: ${DRONE_TAG}
+    commands:
+      - find -maxdepth 4 -path "./projects/*" -name "package.json" | while read file; do sed "s|version_undefined|${NEOPS_VERSION}|g" -i $file; done
+      - make libraries
+      - echo "Built Version ${NEOPS_VERSION##v}"
+    depends_on: [acquire_schema]
+
+  - name: angular_client
+    image: plugins/npm
+    settings:
+      username: { from_secret: npm_username }
+      password: { from_secret: npm_password }
+      token: { from_secret: npm_token }
+      email: release@neops.io
+      registry: "https://npm.pkg.github.com"
+      folder: zebbra/ngx-neops-app-components
+    depends_on: [make]
+
+  - name: angular_client
+    image: plugins/npm
+    settings:
+      username: { from_secret: npm_username }
+      password: { from_secret: npm_password }
+      token: { from_secret: npm_token }
+      email: release@neops.io
+      registry: "https://npm.pkg.github.com"
+      folder: zebbra/ngx-neops-app-services
+    depends_on: [make]
+
+  - name: angular_client
+    image: plugins/npm
+    settings:
+      username: { from_secret: npm_username }
+      password: { from_secret: npm_password }
+      token: { from_secret: npm_token }
+      email: release@neops.io
+      registry: "https://npm.pkg.github.com"
+      folder: zebbra/ngx-neops-client
+    depends_on: [make]
+
+  - name: angular_client
+    image: plugins/npm
+    settings:
+      username: { from_secret: npm_username }
+      password: { from_secret: npm_password }
+      token: { from_secret: npm_token }
+      email: release@neops.io
+      registry: "https://npm.pkg.github.com"
+      folder: zebbra/ngx-neops-dashboard
+    depends_on: [make]
+
+  - name: angular_client
+    image: plugins/npm
+    settings:
+      username: { from_secret: npm_username }
+      password: { from_secret: npm_password }
+      token: { from_secret: npm_token }
+      email: release@neops.io
+      registry: "https://npm.pkg.github.com"
+      folder: zebbra/ngx-neops-generic-table
+    depends_on: [make]
