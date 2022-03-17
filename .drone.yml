@@ -84,7 +84,7 @@ steps:
       - echo "Built Version ${NEOPS_VERSION##v}"
     depends_on: [acquire_schema]
 
-  - name: angular_client
+  - name: ngx-neops-app-components
     image: plugins/npm
     settings:
       username: { from_secret: npm_username }
@@ -95,7 +95,7 @@ steps:
       folder: zebbra/ngx-neops-app-components
     depends_on: [make]
 
-  - name: angular_client
+  - name: ngx-neops-app-services
     image: plugins/npm
     settings:
       username: { from_secret: npm_username }
@@ -106,7 +106,7 @@ steps:
       folder: zebbra/ngx-neops-app-services
     depends_on: [make]
 
-  - name: angular_client
+  - name: ngx-neops-client
     image: plugins/npm
     settings:
       username: { from_secret: npm_username }
@@ -117,7 +117,7 @@ steps:
       folder: zebbra/ngx-neops-client
     depends_on: [make]
 
-  - name: angular_client
+  - name: ngx-neops-dashboard
     image: plugins/npm
     settings:
       username: { from_secret: npm_username }
@@ -128,7 +128,7 @@ steps:
       folder: zebbra/ngx-neops-dashboard
     depends_on: [make]
 
-  - name: angular_client
+  - name: ngx-neops-generic-table
     image: plugins/npm
     settings:
       username: { from_secret: npm_username }
