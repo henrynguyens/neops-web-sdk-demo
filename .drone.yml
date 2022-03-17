@@ -2,8 +2,9 @@
 ### BUILD PIPELINE
 ###
 kind: pipeline
-type: docker
+type: kubernetes
 name: build
+
 trigger:
   event: [push, pull_request, tags]
   branch: [main, develop, refs/tags/*]
