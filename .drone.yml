@@ -6,7 +6,7 @@ type: kubernetes
 name: build
 
 trigger:
-  event: [push, pull_request, tags]
+  event: [push, pull_request, tags, tag]
   branch: [main, develop, refs/tags/*]
 steps:
   - name: builder
