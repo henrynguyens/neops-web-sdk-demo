@@ -1,0 +1,42 @@
+###
+### BUILD PIPELINE
+###
+kind: pipeline
+type: docker
+name: build
+trigger:
+  event: [push, pull_request, tags]
+  branch: [main, develop, refs/tags/*]
+steps:
+  - name: builder
+    image: plugins/docker
+    settings:
+      registry: quay.io
+      insecure: true
+      repo: quay.io/zebbra/neops-web-sdk
+      purge: false
+      tags: builder
+      target: builder
+      username: { from_secret: quay_username }
+      password: { from_secret: quay_password }
+      build_args:
+        - NEOPS_VERSION=${DRONE_COMMIT_SHA}
+      cache_from:
+        - quay.io/zebbra/neops-web-sdk:builder
+
+  - name: image_build
+    image: plugins/docker
+    settings:
+      registry: quay.io
+      insecure: true
+      repo: quay.io/zebbra/neops-web-sdk
+      purge: false
+      tags: latest
+      username: { from_secret: quay_username }
+      password: { from_secret: quay_password }
+      build_args:
+        - NEOPS_VERSION=${DRONE_COMMIT_SHA}
+      cache_from:
+        - quay.io/zebbra/neops-web-sdk
+        - quay.io/zebbra/neops-web-sdk:builder
+
