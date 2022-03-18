@@ -4,7 +4,7 @@
   "peerDependencies": {
     "@angular/common": "^13.1.0",
     "@angular/core": "^13.1.0",
-    "@zebbra/neops-angular-graphql-client": "^0.0.1"
+    "@zebbra/neops-angular-graphql-client": "^0.2"
   },
   "dependencies": {
     "tslib": "^2.3.0"
