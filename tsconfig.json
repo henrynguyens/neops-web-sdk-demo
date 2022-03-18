@@ -4,24 +4,29 @@
   "compilerOptions": {
     "paths": {
       "@zebbra/ngx-neops-app-components": [
-        "dist/zebbra/ngx-neops-app-components/zebbra-ngx-neops-app-components",
-        "dist/zebbra/ngx-neops-app-components"
+        "projects/zebbra/ngx-neops-app-components/src/public-api.ts",
+//        "dist/zebbra/ngx-neops-app-components/zebbra-ngx-neops-app-components",
+//        "dist/zebbra/ngx-neops-app-components"
       ],
       "@zebbra/ngx-neops-app-services": [
-        "dist/zebbra/ngx-neops-app-services/zebbra-ngx-neops-app-services",
-        "dist/zebbra/ngx-neops-app-services"
+        "projects/zebbra/ngx-neops-app-services/src/public-api.ts"
+//        "dist/zebbra/ngx-neops-app-services/zebbra-ngx-neops-app-services",
+//        "dist/zebbra/ngx-neops-app-services"
       ],
       "@zebbra/ngx-neops-client": [
-        "dist/zebbra/ngx-neops-client/zebbra-ngx-neops-client",
-        "dist/zebbra/ngx-neops-client"
+        "projects/zebbra/ngx-neops-client/src/public-api.ts"
+//        "dist/zebbra/ngx-neops-client/zebbra-ngx-neops-client",
+//        "dist/zebbra/ngx-neops-client"
       ],
       "@zebbra/ngx-neops-dashboard": [
-        "dist/zebbra/ngx-neops-dashboard/zebbra-ngx-neops-dashboard",
-        "dist/zebbra/ngx-neops-dashboard"
+        "projects/zebbra/ngx-neops-dashboard/src/public-api.ts"
+//        "dist/zebbra/ngx-neops-dashboard/zebbra-ngx-neops-dashboard",
+//        "dist/zebbra/ngx-neops-dashboard"
       ],
       "@zebbra/ngx-neops-generic-table": [
-        "dist/zebbra/ngx-neops-generic-table/zebbra-ngx-neops-generic-table",
-        "dist/zebbra/ngx-neops-generic-table"
+        "projects/zebbra/ngx-neops-generic-table/src/public-api.ts"
+//        "dist/zebbra/ngx-neops-generic-table/zebbra-ngx-neops-generic-table",
+//        "dist/zebbra/ngx-neops-generic-table"
       ]
     },
     "baseUrl": "./",
