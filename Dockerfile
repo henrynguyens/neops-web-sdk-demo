@@ -9,6 +9,7 @@ RUN npm install -g pngquant
 COPY package-lock.json .
 COPY package.json .
 
+RUN npm config set @zebbra:registry https://npm.pkg.github.com
 RUN npm install
 
 COPY . .
