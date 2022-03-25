@@ -1,0 +1,9 @@
+<app-header></app-header>
+<div style="height: 100%">
+<!--  So we can scroll through the document and have no overlap with the top bar -->
+  <div style="visibility: hidden; z-index: 0; height: 50px"></div>
+  <div class="notification-overlay"></div>
+  <main class="bx--content fill-space" >
+    <router-outlet></router-outlet>
+  </main>
+</div>

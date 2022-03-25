@@ -1,0 +1,6 @@
+<app-generic-table [neopsTableConfiguration]="this.neopsTableConfiguration" [neopsTableData]="this.neopsTableModel"></app-generic-table>
+
+
+<ng-template #rowExpandTemplate let-data="data">
+  <p>Hello from {{data.id}}</p>
+</ng-template>

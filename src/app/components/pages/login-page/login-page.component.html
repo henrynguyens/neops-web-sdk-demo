@@ -1,0 +1,44 @@
+<ibm-tile>
+  <h1>Neops Login</h1>
+
+  <ibm-label
+    [helperText]="helperText"
+    [invalid]="invalid"
+    [invalidText]="invalidText"
+    [warn]="warn"
+    [warnText]="warnText">
+    {{label}}
+      <input
+        ibmText
+        [invalid]="invalid"
+        [warn]="warn"
+        [disabled]="disabled"
+        [placeholder]="placeholder"
+        [autocomplete]="autocomplete"
+        [(ngModel)]="this.username"
+      >
+  </ibm-label>
+
+  <ibm-label
+    [helperText]="helperText"
+    [invalid]="invalid"
+    [invalidText]="invalidText"
+    [warn]="warn"
+    [warnText]="warnText">
+  <input
+    ibmText
+    type="password"
+    [invalid]="invalid"
+    [warn]="warn"
+    [disabled]="disabled"
+    [placeholder]="placeholder"
+    [autocomplete]="autocomplete"
+    [(ngModel)]="this.password"
+  >
+  </ibm-label>
+
+  <ibm-button-set>
+    <button ibmButton="primary" size="sm" [isExpressive]="true" (click)="this.login()">Login</button>
+    <button ibmButton="secondary" size="sm" [isExpressive]="false" (click)="this.getHelp()">Get Help</button>
+  </ibm-button-set>
+</ibm-tile>

@@ -1,0 +1,81 @@
+<ibm-table-container>
+  <ibm-table-header>
+    <h4 ibmTableHeaderTitle>{{this.neopsTableConfiguration.title}}</h4>
+    <p ibmTableHeaderDescription>{{this.neopsTableConfiguration.description}}</p>
+  </ibm-table-header>
+  <ibm-table-toolbar
+    [model]="this.model"
+    [batchText]="this.neopsTableConfiguration.batchText"
+    [size]="this.neopsTableConfiguration.size"
+    (cancel)="this.cancelMethod()"
+    #toolbar>
+    <ibm-table-toolbar-actions>
+      <button ibmButton="primary" [tabindex]="toolbar.selected ? 0 : -1">
+        Delete
+        <svg ibmIcon="delete" size="16" class="bx--btn__icon"></svg>
+      </button>
+      <button ibmButton="primary" [tabindex]="toolbar.selected ? 0 : -1">
+        Execute Task
+        <svg ibmIconRun size="16" class="bx--btn__icon"></svg>
+      </button>
+      <button ibmButton="primary" [tabindex]="toolbar.selected ? 0 : -1">
+        Export
+        <svg ibmIcon="download" size="16" class="bx--btn__icon"></svg>
+      </button>
+    </ibm-table-toolbar-actions>
+    <ibm-table-toolbar-content *ngIf="!toolbar.selected">
+      <ibm-table-toolbar-search
+        ngDefaultControl
+        [expandable]="this.neopsTableConfiguration.searchExpandable"
+        [placeholder]="this.neopsTableConfiguration.searchModelPlaceHolder"
+        (search)="this.search($event)"
+        [(ngModel)]="this.searchModel">
+      </ibm-table-toolbar-search>
+      <ibm-overflow-menu
+        triggerClass="bx--toolbar-action"
+        [customTrigger]="customTrigger"
+        placement="bottom"
+        [offset]="this.neopsTableConfiguration.size === 'sm' ? {x: 0, y: 0} : this.neopsTableConfiguration.offset">
+        <ibm-overflow-menu-option
+          *ngFor="let menuItem of (this.neopsTableData?.globalMenu)"
+          (click)="menuItem.onItemClick()"
+          [disabled]="menuItem.disabled === true"
+          [type]="menuItem.danger === true ? 'danger': 'normal'"
+        >{{menuItem.label}}
+        </ibm-overflow-menu-option>
+      </ibm-overflow-menu>
+      <button ibmButton="primary" size="sm" [tabindex]="toolbar.selected ? -1 : 0">
+        Discover Devices
+      </button>
+    </ibm-table-toolbar-content>
+  </ibm-table-toolbar>
+  <!--
+    app-* components are for demo purposes only.
+    You can create your own implementation by using the component source as an example.
+  -->
+  <ibm-table-container>
+    <ibm-table
+      [model]="this.model"
+      size="sh"
+      [stickyHeader]="false"
+      [showSelectionColumn]="true"
+      [sortable]="false"
+      [striped]="true"
+      [isDataGrid]="false"
+    >
+      <ng-content></ng-content>
+    </ibm-table>
+    <ibm-pagination [model]="this.model" (selectPage)="selectPage($event)"></ibm-pagination>
+  </ibm-table-container>
+
+  <!--  i did inline it here -->
+  <ng-template #customTrigger><svg ibmIconMenu size="16"></svg></ng-template>
+</ibm-table-container>
+
+<ng-template #contextMenuTemplate let-data="data">
+  <ibm-overflow-menu>
+    <ibm-overflow-menu-option *ngFor="let menuEntry of this.neopsTableData?.contextMenu" (click)="menuEntry.onItemClick(data)">
+      {{menuEntry.label}}
+    </ibm-overflow-menu-option>
+  </ibm-overflow-menu>
+</ng-template>

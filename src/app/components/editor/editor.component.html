@@ -1,0 +1,3 @@
+<ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code" (ngModelChange)="onCodeChange()"></ngx-monaco-editor>
+
+<ngx-monaco-diff-editor [options]="editorOptions" [originalModel]="this.originalModel" [modifiedModel]="this.modifiedModel"></ngx-monaco-diff-editor>

@@ -1,0 +1,43 @@
+<ibm-button-set *ngIf="!this.editMode">
+  <button  ibmButton="primary" size="sm" [isExpressive]="true" (click)="editGrid()">Edit Dashboard</button>
+</ibm-button-set>
+
+<ibm-button-set *ngIf="this.editMode">
+  <button ibmButton="primary" size="sm" [isExpressive]="true" (click)="saveGrid()">Save Dashboard</button>
+  <button ibmButton="secondary" size="sm" [isExpressive]="true" (click)="addItemToGrid()">Add Card</button>
+</ibm-button-set>
+
+
+
+
+<br>
+<br>
+
+<!--TODO: Space management: Take all after the control buttons-->
+<div style="height: 80vh">
+  <gridster [style.background-color]="this.editMode ? undefined : 'transparent'" [options]="this.options">
+    <gridster-item [item]="item" *ngFor="let item of this.gridItems">
+      <ibm-tile *ngIf="!this.editMode" style="height: 100%">
+        <h3>Task {{item['content']}}</h3>
+        <br>
+        This task does something really cool, you should click Run :-)
+        <br>
+        <br>
+        <button ibmButton="secondary" size="sm" >
+          Run<svg class="bx--btn__icon" ibmIconPlay size="16"></svg>
+        </button>
+      </ibm-tile>
+      <ibm-tile *ngIf="this.editMode" style="height: 100%">
+        <h3>Edit Task {{item['content']}}</h3>
+        <ibm-number
+        min="0">
+        </ibm-number>
+        <br>
+        <button ibmButton="secondary" size="sm" >
+          Save<svg class="bx--btn__icon" ibmIconSave size="16"></svg>
+        </button>
+      </ibm-tile>
+    </gridster-item>
+  </gridster>
+</div>
+

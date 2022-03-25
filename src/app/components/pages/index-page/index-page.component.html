@@ -1,0 +1,8 @@
+<ibm-button-set>
+  <button ibmButton="primary" size="sm" [isExpressive]="true" (click)="notify()">Show Notification</button>
+  <button ibmButton="secondary" size="sm" [isExpressive]="false" (click)="notify()">Do something</button>
+</ibm-button-set>
+
+<br>
+
+<app-drag-drop-grid [data]="this.tiles"></app-drag-drop-grid>
