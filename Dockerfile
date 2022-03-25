@@ -9,6 +9,10 @@ RUN npm install -g pngquant
 COPY package-lock.json .
 COPY package.json .
 
+ARG NPM_TOKEN
+ENV NPM_TOKEN ${NPM_TOKEN}
+
+RUN echo //npm.pkg.github.com/:_authToken=${NPM_TOKEN:?} >> ~/.npmrc
 RUN npm config set @zebbra:registry https://npm.pkg.github.com
 RUN npm install
 
@@ -39,6 +43,7 @@ FROM builder AS builder-production
 
 #RUN ng build ngx-neops-graphql --configuration=production
 RUN ng build --configuration=production
+# RUN make libraries
 
 FROM nginx:1.19
 
