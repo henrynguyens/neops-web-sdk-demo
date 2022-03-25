@@ -29,8 +29,6 @@ import { DragDropGridComponent } from './components/drag-drop-grid/drag-drop-gri
 import {GridsterModule} from "angular-gridster2";
 import { GenericTableComponent } from './components/generic-table/generic-table.component';
 import {AppCarbonIconsModule} from "./app-carbon-icons-module";
-import {NeopsAngularGraphqlClientModule} from "@zebbra/neops-angular-graphql-client";
-
 
 @NgModule({
   declarations: [

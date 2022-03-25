@@ -18,37 +18,37 @@ const routes: Routes = [
   {
     path: routingKeys.routeDefault,
     component: IndexPageComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: routingKeys.routeDevices,
     component: DevicesPageComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: routingKeys.routeInterfaces,
     component: InterfacesPageComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: routingKeys.routeClients,
     component: ClientsPageComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: routingKeys.routeGroups,
     component: GroupsPageComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: routingKeys.routeConfiguration,
     component: ConfigurationPageComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: routingKeys.routeTasks,
     component: TasksPageComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: routingKeys.routeHelp,
