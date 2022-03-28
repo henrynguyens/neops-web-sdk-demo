@@ -1,8 +1,8 @@
 {
   "name": "neops-web-sdk",
   "short_name": "neops-web-sdk",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#161616",
+  "background_color": "#161616",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
