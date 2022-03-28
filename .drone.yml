@@ -11,6 +11,9 @@ trigger:
 steps:
   - name: builder
     image: plugins/docker
+    environment:
+      NPM_TOKEN:
+        from_secret: npm_token
     settings:
       registry: quay.io
       insecure: true
@@ -20,9 +23,6 @@ steps:
       target: builder
       username: { from_secret: quay_username }
       password: { from_secret: quay_password }
-      environment:
-        NPM_TOKEN:
-          from_secret: npm_token
       build_args:
         - NEOPS_VERSION: ${DRONE_COMMIT_SHA}
       build_args_from_env:
@@ -32,6 +32,9 @@ steps:
 
   - name: image_build
     image: plugins/docker
+    environment:
+      NPM_TOKEN:
+        from_secret: npm_token
     settings:
       registry: quay.io
       insecure: true
@@ -42,9 +45,6 @@ steps:
         - ${DRONE_COMMIT_SHA:0:7}
       username: { from_secret: quay_username }
       password: { from_secret: quay_password }
-      environment:
-        NPM_TOKEN:
-          from_secret: npm_token
       build_args:
         - NEOPS_VERSION: ${DRONE_COMMIT_SHA}
       build_args_from_env:
@@ -69,15 +69,15 @@ depends_on:
 steps:
   - name: imagebuild
     image: plugins/docker
+    environment:
+      NPM_TOKEN:
+        from_secret: npm_token
     settings:
       username: { from_secret: quay_username }
       password: { from_secret: quay_password }
       registry: quay.io
       repo: quay.io/zebbra/neops-web-sdk
       # tags: "${DRONE_TAG}"
-      environment:
-        NPM_TOKEN:
-          from_secret: npm_token
       build_args:
         - NEOPS_VERSION: ${DRONE_TAG}
       build_args_from_env:
