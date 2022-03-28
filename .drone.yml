@@ -77,7 +77,6 @@ steps:
       password: { from_secret: quay_password }
       registry: quay.io
       repo: quay.io/zebbra/neops-web-sdk
-      # tags: "${DRONE_TAG}"
       build_args:
         - NEOPS_VERSION: ${DRONE_TAG}
       build_args_from_env:
