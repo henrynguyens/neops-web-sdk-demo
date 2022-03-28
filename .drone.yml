@@ -20,9 +20,13 @@ steps:
       target: builder
       username: { from_secret: quay_username }
       password: { from_secret: quay_password }
+      environment:
+        NPM_TOKEN:
+          from_secret: npm_token
       build_args:
         - NEOPS_VERSION: ${DRONE_COMMIT_SHA}
-        - NPM_TOKEN: { from_secret: npm_token }
+      build_args_from_env:
+        - NPM_TOKEN
       cache_from:
         - quay.io/zebbra/neops-web-sdk:builder
 
@@ -38,9 +42,13 @@ steps:
         - ${DRONE_COMMIT_SHA:0:7}
       username: { from_secret: quay_username }
       password: { from_secret: quay_password }
+      environment:
+        NPM_TOKEN:
+          from_secret: npm_token
       build_args:
         - NEOPS_VERSION: ${DRONE_COMMIT_SHA}
-        - NPM_TOKEN: { from_secret: npm_token }
+      build_args_from_env:
+        - NPM_TOKEN
       cache_from:
         - quay.io/zebbra/neops-web-sdk
         - quay.io/zebbra/neops-web-sdk:builder
@@ -67,9 +75,13 @@ steps:
       registry: quay.io
       repo: quay.io/zebbra/neops-web-sdk
       # tags: "${DRONE_TAG}"
+      environment:
+        NPM_TOKEN:
+          from_secret: npm_token
       build_args:
-        NEOPS_VERSION: ${DRONE_TAG}
-        NPM_TOKEN: { from_secret: npm_token }
+        - NEOPS_VERSION: ${DRONE_TAG}
+      build_args_from_env:
+        - NPM_TOKEN
       auto_tag: true
       cache_from:
         - quay.io/zebbra/neops-web-sdk:builder
