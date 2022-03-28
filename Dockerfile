@@ -3,8 +3,8 @@ FROM node:16 AS builder
 # Set the Current Working Directory inside the container
 WORKDIR app
 
-RUN apt-get update && apt-get install chromium libpng-dev rsync -y
-RUN npm install -g pngquant
+#RUN apt-get update && apt-get install chromium libpng-dev rsync -y
+#RUN npm install -g pngquant
 # Copy everything from the current directory to the PWD (Present Working Directory) inside the container
 COPY package-lock.json .
 COPY package.json .
