@@ -31,6 +31,8 @@ import { GenericTableComponent } from './components/generic-table/generic-table.
 import {AppCarbonIconsModule} from "./app-carbon-icons-module";
 import { NetworkDiagramPageComponent } from './components/pages/network-diagram-page/network-diagram-page.component';
 import { NetworkDiagramComponent } from './components/network-diagram/network-diagram.component';
+import {NgxGraphModule} from "@swimlane/ngx-graph";
+import {CardNodeModule, EdgeModule} from '@carbon/charts-angular';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,9 @@ import { NetworkDiagramComponent } from './components/network-diagram/network-di
     JsonFormsModule,
     DragDropModule,
     GridsterModule,
+    NgxGraphModule,
+    CardNodeModule,
+    EdgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
