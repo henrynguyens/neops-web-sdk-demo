@@ -1,1 +1,62 @@
-<p>Network diagram comes here</p>
+<div class="page" xmlns:svg="http://www.w3.org/1999/XSL/Transform">
+  <ngx-graph
+    [links]="links"
+    [nodes]="nodes"
+    [clusters]="clusters"
+    layout="dagreCluster"
+    [curve]="curve"
+    [draggingEnabled]="draggingEnabled"
+    [panningEnabled]="panningEnabled"
+    [enableZoom]="zoomEnabled"
+    [zoomSpeed]="zoomSpeed"
+    [minZoomLevel]="minZoomLevel"
+    [maxZoomLevel]="maxZoomLevel"
+    [panOnZoom]="panOnZoom"
+    [autoZoom]="autoZoom"
+    [autoCenter]="autoCenter"
+    [update$]="updateGraph"
+    [center$]="centerGraph"
+    [zoomToFit$]="zoomToFitGraph"
+  >
+    <ng-template #defsTemplate>
+      <svg:marker id="arrow" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="4" markerHeight="4" orient="auto">
+        <svg:path d="M0,-5L10,0L0,5" class="arrow-head" />
+      </svg:marker>
+    </ng-template>
+
+    <ng-template #clusterTemplate let-cluster>
+      <svg:g class="node cluster">
+        <svg:rect rx="5" ry="5" [attr.width]="cluster.dimension.width" [attr.height]="cluster.dimension.height" [attr.fill]="cluster.data.color" />
+      </svg:g>
+    </ng-template>
+
+    <ng-template #nodeTemplate let-node>
+        <foreignObject [attr.x]="10" [attr.y]="(- node.dimension.height / 2) + 10" [attr.width]="node.dimension.width" [attr.height]="node.dimension.height + 10" [attr.transform]="'translate(0, 16)'" style="overflow: visible">
+          <div>
+                      <ibm-diagram-card-node (click)="this.nodeClick()" as="button"
+                      >
+                      <ibm-diagram-card-node-column>
+                        <svg ibmIconUser size="20"></svg>
+                      </ibm-diagram-card-node-column>
+                      <ibm-diagram-card-node-column>
+                        <ibm-diagram-card-node-title>{{node.label}}</ibm-diagram-card-node-title>
+                        <ibm-diagram-card-node-subtitle>Description</ibm-diagram-card-node-subtitle>
+                      </ibm-diagram-card-node-column>
+                      </ibm-diagram-card-node>
+          </div>
+        </foreignObject>
+    </ng-template>
+
+    <ng-template #linkTemplate let-link>
+      <svg:g class="edge">
+        <svg:path class="line" stroke-width="2" marker-end="url(#arrow)">
+        </svg:path>
+        <svg:text class="edge-label" text-anchor="middle">
+          <textPath class="text-path" [attr.href]="'#' + link.id" [style.dominant-baseline]="link.dominantBaseline" startOffset="50%">
+            {{link.label}}
+          </textPath>
+        </svg:text>
+      </svg:g>
+    </ng-template>
+  </ngx-graph>
+</div>
