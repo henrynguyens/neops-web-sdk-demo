@@ -13,6 +13,7 @@ import {IndexPageComponent} from "../components/pages/index-page/index-page.comp
 import {AuthGuard} from "./guards/auth.guard";
 import {EditorComponent} from "../components/editor/editor.component";
 import {JsonformComponent} from "../components/jsonform/jsonform.component";
+import {NetworkDiagramPageComponent} from "../components/pages/network-diagram-page/network-diagram-page.component";
 
 const routes: Routes = [
   {
@@ -65,6 +66,10 @@ const routes: Routes = [
   {
     path: routingKeys.routeJSONForm,
     component: JsonformComponent
+  },
+  {
+    path: routingKeys.networkDiagram,
+    component: NetworkDiagramPageComponent
   }
 ];
 

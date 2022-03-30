@@ -6,11 +6,14 @@
       <ibm-header-item [routerLink]="routingKeys.routeClients">Clients</ibm-header-item>
       <ibm-header-item [routerLink]="routingKeys.routeGroups">Groups</ibm-header-item>
     </ibm-header-menu>
+    <ibm-header-menu title="Integrations" (click)="$event.stopPropagation()">
+      <ibm-header-item [routerLink]="routingKeys.routeJSONForm">JSON Form</ibm-header-item>
+      <ibm-header-item [routerLink]="routingKeys.routeEditor">Editor</ibm-header-item>
+      <ibm-header-item [routerLink]="routingKeys.networkDiagram">Network Diagram</ibm-header-item>
+    </ibm-header-menu>
     <ibm-header-item [routerLink]="routingKeys.routeTasks">Tasks Executions</ibm-header-item>
     <ibm-header-item [routerLink]="routingKeys.routeConfiguration">Configuration</ibm-header-item>
     <ibm-header-item [routerLink]="routingKeys.routeHelp">Help</ibm-header-item>
-    <ibm-header-item [routerLink]="routingKeys.routeEditor">Editor</ibm-header-item>
-    <ibm-header-item [routerLink]="routingKeys.routeJSONForm">JSON Form</ibm-header-item>
   </ibm-header-navigation>
   <ibm-header-global (click)="$event.stopPropagation()">
     <div style="height: 100%; width: 120px; position: relative">

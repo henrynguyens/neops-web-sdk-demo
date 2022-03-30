@@ -29,6 +29,8 @@ import { DragDropGridComponent } from './components/drag-drop-grid/drag-drop-gri
 import {GridsterModule} from "angular-gridster2";
 import { GenericTableComponent } from './components/generic-table/generic-table.component';
 import {AppCarbonIconsModule} from "./app-carbon-icons-module";
+import { NetworkDiagramPageComponent } from './components/pages/network-diagram-page/network-diagram-page.component';
+import { NetworkDiagramComponent } from './components/network-diagram/network-diagram.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import {AppCarbonIconsModule} from "./app-carbon-icons-module";
     EditorComponent,
     JsonformComponent,
     DragDropGridComponent,
-    GenericTableComponent
+    GenericTableComponent,
+    NetworkDiagramPageComponent,
+    NetworkDiagramComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,7 @@ import {AppCarbonIconsModule} from "./app-carbon-icons-module";
     MonacoEditorModule.forRoot(),
     JsonFormsModule,
     DragDropModule,
-    GridsterModule
+    GridsterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

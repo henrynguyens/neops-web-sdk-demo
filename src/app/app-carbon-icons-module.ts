@@ -5,8 +5,9 @@ import {
   LogoutModule,
   MenuModule,
   NotificationModule, PlayModule, RunModule, SaveModule, TextLineSpacingModule,
-  UserAvatarModule
+  UserAvatarModule, UserModule, WikisModule
 } from "@carbon/icons-angular";
+
 
 @NgModule({
   exports: [
@@ -22,7 +23,9 @@ import {
     SaveModule,
     NotificationModule,
     RunModule,
-    Data_2Module
+    Data_2Module,
+    UserModule,
+    WikisModule
   ],
   providers: [
   ]

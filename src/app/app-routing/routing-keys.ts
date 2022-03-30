@@ -10,4 +10,5 @@ export const routingKeys = {
     routeLogin: 'login',
     routeEditor: 'editor',
     routeJSONForm: 'jsonform',
+    networkDiagram: 'networkdiagram',
 };
