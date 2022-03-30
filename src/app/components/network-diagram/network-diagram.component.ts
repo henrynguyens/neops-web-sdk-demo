@@ -33,67 +33,31 @@ export class NetworkDiagramComponent implements OnInit {
     this.nodes = [
       {
         id: 'first',
-        label: 'A',
-        dimension: {
-          width: 200,
-          height: 64
-        }
+        label: 'A'
       }, {
         id: 'second',
-        label: 'B',
-        dimension: {
-          width: 200,
-          height: 64
-        }
+        label: 'B'
       }, {
         id: 'c1',
-        label: 'C1',
-        dimension: {
-          width: 200,
-          height: 64
-        }
+        label: 'C1'
       }, {
         id: 'c2',
-        label: 'C2',
-        dimension: {
-          width: 200,
-          height: 64
-        }
+        label: 'C2'
       }, {
         id: 'd',
-        label: 'd',
-        dimension: {
-          width: 200,
-          height: 64
-        }
+        label: 'd'
       }, {
         id: 'e',
-        label: 'e',
-        dimension: {
-          width: 200,
-          height: 64
-        }
+        label: 'e'
       }, {
         id: 'f',
-        label: 'f',
-        dimension: {
-          width: 200,
-          height: 64
-        }
+        label: 'f'
       }, {
         id: 'g',
-        label: 'g',
-        dimension: {
-          width: 200,
-          height: 64
-        }
+        label: 'g'
       }, {
         id: 'h',
-        label: 'h',
-        dimension: {
-          width: 200,
-          height: 64
-        }
+        label: 'h'
       }
     ]
 
@@ -143,8 +107,10 @@ export class NetworkDiagramComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  nodeClick() {
-    alert("Node clicked")
+  nodeClick($event: Event, node: Node) {
+    alert("Node clicked: " + node.id)
+    $event.stopPropagation();
+
   }
 }
 
