@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Edge} from "@swimlane/ngx-graph/lib/models/edge.model";
 import {ClusterNode, Node} from "@swimlane/ngx-graph/lib/models/node.model";
 import {Subject} from "rxjs";
@@ -105,6 +105,11 @@ export class NetworkDiagramComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.centerGraph.next(true)
   }
 
   nodeClick($event: Event, node: Node) {
