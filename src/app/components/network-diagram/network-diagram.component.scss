@@ -1,5 +1,9 @@
 .line{
+  stroke: red
+}
 
+.line:hover{
+  stroke: green
 }
 
 .node {
@@ -8,9 +12,6 @@
 
 .edge:hover {
   cursor: pointer;
-  color: #007cb0;
-  fill: #007cb0;
-
 }
 
 svg path:hover {

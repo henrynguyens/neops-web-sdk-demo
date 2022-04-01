@@ -1,3 +1,17 @@
-<div class="page">
-  <app-network-diagram></app-network-diagram>
+<h1>Network Diagram</h1>
+<p>Network Diagram using ngx-graph and carbon components</p>
+<div ibmGrid>
+  <div ibmRow>
+    <div ibmCol>
+      <ibm-button-set>
+        <button ibmButton="primary">Reset</button>
+        <button ibmButton="secondary">Add random Node</button>
+        <button ibmButton="secondary">Add random Edge</button>
+      </ibm-button-set>
+    </div>
+    <div ibmCol>
+      <app-network-diagram></app-network-diagram>
+    </div>
+  </div>
 </div>
+

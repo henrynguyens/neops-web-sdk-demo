@@ -12,12 +12,12 @@ import {curveStepAfter} from "d3-shape"
 export class NetworkDiagramComponent implements OnInit {
   panOnZoom: boolean = true;
   draggingEnabled = false;
-  panningEnabled = false;
-  zoomEnabled = false;
-  zoomSpeed = 1;
-  minZoomLevel = 1;
-  maxZoomLevel = 1;
-  autoZoom = false;
+  panningEnabled = true;
+  zoomEnabled = true;
+  zoomSpeed = 0.1;
+  minZoomLevel = 0.5;
+  maxZoomLevel = 2;
+  autoZoom = true;
   autoCenter = true;
   curve = curveStepAfter;
 
