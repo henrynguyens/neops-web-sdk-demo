@@ -4,13 +4,30 @@
   <div ibmRow>
     <div ibmCol>
       <ibm-button-set>
-        <button ibmButton="primary">Reset</button>
-        <button ibmButton="secondary">Add random Node</button>
-        <button ibmButton="secondary">Add random Edge</button>
+        <button ibmButton="primary" (click)="resetGraph()">Reset</button>
+        <button ibmButton="secondary" (click)="addRandomNode()">Add random Node</button>
+        <button ibmButton="secondary" (click)="addRandomEdge()">Add random Edge</button>
       </ibm-button-set>
+
+      <ibm-button-set>
+        <button ibmButton="primary" (click)="zoomToFitGraph()">Zoom to Fit</button>
+        <button ibmButton="secondary" (click)="centerGraph()">Center</button>
+        <button ibmButton="secondary" (click)="updateGraph()">Update</button>
+      </ibm-button-set>
+
+      <h3>Control Data</h3>
+      <p>
+        Nodes: {{this.networkDiagramControl.nodes | json}}
+      </p>
+      <p>
+        Edges: {{this.networkDiagramControl.links | json}}
+      </p>
+      <p>
+        Clusters: {{this.networkDiagramControl.clusters | json}}
+      </p>
     </div>
     <div ibmCol>
-      <app-network-diagram></app-network-diagram>
+      <app-network-diagram [networkDiagramControl]="networkDiagramControl"></app-network-diagram>
     </div>
   </div>
 </div>

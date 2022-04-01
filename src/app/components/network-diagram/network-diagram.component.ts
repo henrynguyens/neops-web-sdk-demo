@@ -1,8 +1,9 @@
-import {Component, HostListener, OnInit} from '@angular/core';
-import {Edge} from "@swimlane/ngx-graph/lib/models/edge.model";
-import {ClusterNode, Node} from "@swimlane/ngx-graph/lib/models/node.model";
+import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {Node} from "@swimlane/ngx-graph/lib/models/node.model";
 import {Subject} from "rxjs";
 import {curveStepAfter} from "d3-shape"
+import {NetworkDiagramControl} from "./model/NetworkDiagramControl";
+import {DagreClusterLayout, MiniMapPosition} from "@swimlane/ngx-graph";
 
 @Component({
   selector: 'app-network-diagram',
@@ -10,8 +11,19 @@ import {curveStepAfter} from "d3-shape"
   styleUrls: ['./network-diagram.component.scss']
 })
 export class NetworkDiagramComponent implements OnInit {
+  control: NetworkDiagramControl = new NetworkDiagramControl();
+
+  @Input()
+  set networkDiagramControl(control: NetworkDiagramControl) {
+    this.control = control
+    this.control._centerGraph.subscribe(value => this.centerGraph.next(true))
+    this.control._updateGraph.subscribe(value => this.updateGraph.next(true))
+    this.control._zoomToFitGraph.subscribe(value => this.zoomToFitGraph.next(true))
+  }
+
+  layout: DagreClusterLayout = new DagreClusterLayout();
   panOnZoom: boolean = true;
-  draggingEnabled = false;
+  draggingEnabled = true;
   panningEnabled = true;
   zoomEnabled = true;
   zoomSpeed = 0.1;
@@ -21,87 +33,16 @@ export class NetworkDiagramComponent implements OnInit {
   autoCenter = true;
   curve = curveStepAfter;
 
-  links: Edge[] = [];
-  nodes: Node[] = [];
-  clusters: ClusterNode[] = [];
   updateGraph: Subject<boolean> = new Subject();
   centerGraph: Subject<boolean> = new Subject();
   zoomToFitGraph: Subject<boolean> = new Subject();
+  panToNode: Subject<boolean> = new Subject();
+  miniMapPosition: MiniMapPosition = MiniMapPosition.UpperRight;
 
 
   constructor() {
-    this.nodes = [
-      {
-        id: 'first',
-        label: 'A'
-      }, {
-        id: 'second',
-        label: 'B'
-      }, {
-        id: 'c1',
-        label: 'C1'
-      }, {
-        id: 'c2',
-        label: 'C2'
-      }, {
-        id: 'd',
-        label: 'd'
-      }, {
-        id: 'e',
-        label: 'e'
-      }, {
-        id: 'f',
-        label: 'f'
-      }, {
-        id: 'g',
-        label: 'g'
-      }, {
-        id: 'h',
-        label: 'h'
-      }
-    ]
-
-    this.links =  [
-      {
-        id: 'a',
-        source: 'first',
-        target: 'second',
-        label: 'is parent of'
-      }, {
-        id: 'b',
-        source: 'first',
-        target: 'c1',
-        // label: 'custom label'
-      }, {
-        id: 'c',
-        source: 'first',
-        target: 'c1',
-        // label: 'custom label'
-      }, {
-        id: 'd',
-        source: 'first',
-        target: 'c2',
-        // label: 'custom label'
-      }, {
-        id: 'e',
-        source: 'first',
-        target: 'd',
-        // label: 'custom label'
-      }, {
-        id: 'f',
-        source: 'd',
-        target: 'e',
-        // label: 'custom label'
-      }
-    ]
-
-    this.clusters = [
-      {
-        id: 'third',
-        label: 'C',
-        childNodeIds: ['c1', 'c2']
-      }
-    ]
+    this.layout.settings.marginX = 0
+    this.layout.settings.marginY = 0
   }
 
   ngOnInit(): void {
@@ -115,7 +56,6 @@ export class NetworkDiagramComponent implements OnInit {
   nodeClick($event: Event, node: Node) {
     alert("Node clicked: " + node.id)
     $event.stopPropagation();
-
   }
 }
 

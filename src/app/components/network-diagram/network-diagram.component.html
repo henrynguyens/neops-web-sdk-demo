@@ -1,10 +1,10 @@
 <div class="page" xmlns:svg="http://www.w3.org/1999/XSL/Transform">
 <!-- Pass layout https://github.com/swimlane/ngx-graph/tree/master/projects/swimlane/ngx-graph/src/lib/graph/layouts-->
   <ngx-graph
-    [links]="links"
-    [nodes]="nodes"
-    [clusters]="clusters"
-    layout="dagreCluster"
+    [links]="control.links"
+    [nodes]="control.nodes"
+    [clusters]="control.clusters"
+    [layout]="layout"
     [curve]="curve"
     [draggingEnabled]="draggingEnabled"
     [panningEnabled]="panningEnabled"
@@ -13,6 +13,7 @@
     [minZoomLevel]="minZoomLevel"
     [maxZoomLevel]="maxZoomLevel"
     [panOnZoom]="panOnZoom"
+    [panToNode$]="panToNode"
     [autoZoom]="autoZoom"
     [autoCenter]="autoCenter"
     [update$]="updateGraph"
@@ -20,6 +21,8 @@
     [zoomToFit$]="zoomToFitGraph"
     [nodeHeight]="64"
     [nodeWidth]="200"
+    [miniMapPosition]="miniMapPosition"
+    [showMiniMap]="true"
   >
     <ng-template #defsTemplate>
       <svg:marker id="arrow" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="4" markerHeight="4" orient="auto">
