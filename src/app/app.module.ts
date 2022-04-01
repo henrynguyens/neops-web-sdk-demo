@@ -30,7 +30,6 @@ import {GridsterModule} from "angular-gridster2";
 import { GenericTableComponent } from './components/generic-table/generic-table.component';
 import {AppCarbonIconsModule} from "./app-carbon-icons-module";
 import { NetworkDiagramPageComponent } from './components/pages/network-diagram-page/network-diagram-page.component';
-import { NetworkDiagramComponent } from './components/network-diagram/network-diagram.component';
 import {NgxGraphModule} from "@swimlane/ngx-graph";
 import {CardNodeModule, EdgeModule} from '@carbon/charts-angular';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -54,8 +53,7 @@ import {NgxNeopsAppComponentsModule} from "@zebbra/ngx-neops-app-components";
     JsonformComponent,
     DragDropGridComponent,
     GenericTableComponent,
-    NetworkDiagramPageComponent,
-    NetworkDiagramComponent
+    NetworkDiagramPageComponent
   ],
   imports: [
     BrowserModule,
