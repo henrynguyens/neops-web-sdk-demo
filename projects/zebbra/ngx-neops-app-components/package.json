@@ -3,7 +3,16 @@
   "version": "version_undefined",
   "peerDependencies": {
     "@angular/common": "^13.1.0",
-    "@angular/core": "^13.1.0"
+    "@angular/core": "^13.1.0",
+    "@carbon/charts": "^0.54.11",
+    "@carbon/charts-angular": "^0.54.11",
+    "@carbon/icons-angular": "^11.2.2",
+    "@swimlane/ngx-graph": "^8.0.0",
+    "carbon-components": "^10.52.0",
+    "carbon-components-angular": "^4.57.6",
+    "@types/d3": "^7.1.0",
+    "d3": "^7.3.0",
+    "rxjs": "~7.4.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
