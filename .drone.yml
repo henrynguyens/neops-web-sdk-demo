@@ -91,7 +91,8 @@ steps:
     image: node:16
     environment:
       NEOPS_VERSION: ${DRONE_TAG}
-      NPM_TOKEN: { from_secret: npm_token }
+      NPM_TOKEN:
+        from_secret: npm_token
     commands:
       - echo //npm.pkg.github.com/:_authToken=${NPM_TOKEN:?} >> ~/.npmrc
       - npm config set @zebbra:registry https://npm.pkg.github.com
