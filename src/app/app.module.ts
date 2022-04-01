@@ -33,6 +33,7 @@ import { NetworkDiagramPageComponent } from './components/pages/network-diagram-
 import { NetworkDiagramComponent } from './components/network-diagram/network-diagram.component';
 import {NgxGraphModule} from "@swimlane/ngx-graph";
 import {CardNodeModule, EdgeModule} from '@carbon/charts-angular';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import {CardNodeModule, EdgeModule} from '@carbon/charts-angular';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     GraphQLModule,
     HttpClientModule,
