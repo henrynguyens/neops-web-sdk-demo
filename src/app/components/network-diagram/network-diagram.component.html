@@ -1,4 +1,5 @@
 <div class="page" xmlns:svg="http://www.w3.org/1999/XSL/Transform">
+<!-- Pass layout https://github.com/swimlane/ngx-graph/tree/master/projects/swimlane/ngx-graph/src/lib/graph/layouts-->
   <ngx-graph
     [links]="links"
     [nodes]="nodes"
@@ -50,10 +51,10 @@
     </ng-template>
 
     <ng-template #linkTemplate let-link>
-      <svg:g class="edge">
+      <svg:g class="edge tooltip">
         <svg:path class="line" stroke-width="2" marker-end="url(#arrow)">
         </svg:path>
-        <svg:text class="edge-label" text-anchor="middle">
+        <svg:text class="edge-label tooltiptext" text-anchor="middle">
           <textPath class="text-path" [attr.href]="'#' + link.id" [style.dominant-baseline]="link.dominantBaseline" startOffset="50%">
             {{link.label}}
           </textPath>
