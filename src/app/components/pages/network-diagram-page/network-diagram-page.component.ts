@@ -1,6 +1,7 @@
 import {AfterContentInit, AfterViewInit, Component, OnInit} from '@angular/core';
-import {NetworkDiagramControl} from "../../network-diagram/model/NetworkDiagramControl";
+// import {NetworkDiagramControl} from "../../network-diagram/model/NetworkDiagramControl";
 import {EDGE_MOCK_DATA, NODE_MOCK_DATA} from "./mock/Data";
+import {NetworkDiagramControl} from "@zebbra/ngx-neops-app-components";
 
 @Component({
   selector: 'app-network-diagram-page',

@@ -34,6 +34,7 @@ import { NetworkDiagramComponent } from './components/network-diagram/network-di
 import {NgxGraphModule} from "@swimlane/ngx-graph";
 import {CardNodeModule, EdgeModule} from '@carbon/charts-angular';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgxNeopsAppComponentsModule} from "@zebbra/ngx-neops-app-components";
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     NgxGraphModule,
     CardNodeModule,
     EdgeModule,
+    NgxNeopsAppComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
