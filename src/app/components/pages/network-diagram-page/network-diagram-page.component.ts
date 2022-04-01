@@ -33,7 +33,8 @@ export class NetworkDiagramPageComponent implements OnInit, AfterContentInit {
   addRandomNode() {
     this.networkDiagramControl.addNode({
       id: "n-" + (++this.nodeCounter).toString(),
-      label: "test"
+      label: "test",
+      color: this.nodeCounter % 2 == 0 ? "red": "green"
     })
   }
 
