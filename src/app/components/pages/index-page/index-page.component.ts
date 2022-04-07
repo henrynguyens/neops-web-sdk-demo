@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AlertService} from "../../../service/common/alert/alert.service";
+import {AlertService} from "../../../../../projects/zebbra/ngx-neops-app-services/src/lib/common/alert/alert.service";
 import {CdkDragDrop} from "@angular/cdk/drag-drop";
 
 @Component({

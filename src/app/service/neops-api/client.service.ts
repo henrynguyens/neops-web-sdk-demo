@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {NeopsBaseService} from "./neops-base-service";
 import {ClientsGQL, ClientType} from "@zebbra/neops-angular-graphql-client";
 import {Apollo} from "apollo-angular";
-import {AlertService} from "../common/alert/alert.service";
+import {AlertService} from "@zebbra/ngx-neops-app-services";
 
 @Injectable({
   providedIn: 'root'

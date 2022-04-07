@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Apollo} from "apollo-angular";
 import {DevicesGQL, DeviceType} from "@zebbra/neops-angular-graphql-client";
-import {AlertService} from "../common/alert/alert.service";
+import {AlertService} from "@zebbra/ngx-neops-app-services";
 import {NeopsBaseService} from "./neops-base-service";
 
 @Injectable({

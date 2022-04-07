@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {SwUpdate} from '@angular/service-worker';
 import {BehaviorSubject, timer} from 'rxjs';
-import {MINUTE, SECOND} from '../../../model/types/TimeSpan';
+import {MINUTE, SECOND} from '../../types/TimeSpan';
 
 @Injectable({
   providedIn: 'root'

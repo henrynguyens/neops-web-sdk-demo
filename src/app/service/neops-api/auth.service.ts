@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Apollo} from "apollo-angular";
 import {LoginGQL, RefreshTokenGQL} from "@zebbra/neops-angular-graphql-client";
 import jwtDecode, { JwtPayload } from "jwt-decode";
-import {AlertService} from "../common/alert/alert.service";
+import {AlertService} from "@zebbra/ngx-neops-app-services";
 import {BehaviorSubject} from "rxjs";
 
 @Injectable({
