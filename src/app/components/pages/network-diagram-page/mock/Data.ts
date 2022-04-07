@@ -1,67 +1,88 @@
-import {Edge} from "@swimlane/ngx-graph/lib/models/edge.model";
-import {Node} from "@swimlane/ngx-graph/lib/models/node.model";
+import {NetworkEdge, NetworkNode} from "@zebbra/ngx-neops-app-components";
 
-export const NODE_MOCK_DATA: Node[] = [
+export const NODE_MOCK_DATA: NetworkNode[] = [
   {
-    id: 'first',
-    label: 'A'
-  }, {
-    id: 'second',
-    label: 'B'
-  }, {
-    id: 'c1',
-    label: 'C1'
-  }, {
-    id: 'c2',
-    label: 'C2'
-  }, {
-    id: 'd',
-    label: 'd'
-  }, {
-    id: 'e',
-    label: 'e'
-  }, {
-    id: 'f',
-    label: 'f'
-  }, {
-    id: 'g',
-    label: 'g'
-  }, {
-    id: 'h',
-    label: 'h'
+    id: 'N1',
+    label: 'N1',
+    color: "blue",
+    location: {
+      label: "Somewhere in Bern",
+      tooltip: "You are on your own, buddy"
+    },
+    rack: {
+      label: "Find out yourself",
+      tooltip: "No help for you"
+    },
+    serialNr: {
+      label: "189342",
+      tooltip: "You'll never find this"
+    }
+  },
+  {
+    id: 'N2',
+    label: 'N2',
+    color: "red",
+    location: {
+      label: "Somewhere in Matte",
+      tooltip: "No more hints for you"
+    },
+    serialNr: {
+      label: "1032u",
+      onClick: (node: NetworkNode) => console.log("N2 serialNr clicked"),
+      tooltip: "You are on your own, buddy",
+      actionRequired: true
+    }
+  },
+  {
+    id: 'N3',
+    label: 'N3',
+    color: "green",
+    serialNr: {
+      label: "1032u",
+      onClick: (node: NetworkNode) => console.log("N2 serialNr clicked"),
+      tooltip: "You are on your own, buddy",
+      actionRequired: false
+    }
+  },
+  {
+    id: 'N4',
+    label: 'N4',
+    color: "yellow",
+    serialNr: {
+      label: "1032u",
+      tooltip: "You are on your own, buddy",
+    }
+  },
+  {
+    id: 'N5',
+    label: 'N5',
+    color: "purple"
   }
 ]
 
-export const EDGE_MOCK_DATA: Edge[] = [
+export const EDGE_MOCK_DATA: NetworkEdge[] = [
   {
-    id: 'a',
-    source: 'first',
-    target: 'second',
-    label: 'is parent of'
-  }, {
-    id: 'b',
-    source: 'first',
-    target: 'c1',
-    // label: 'custom label'
-  }, {
-    id: 'c',
-    source: 'first',
-    target: 'c1',
-    // label: 'custom label'
-  }, {
-    id: 'd',
-    source: 'first',
-    target: 'c2',
-    // label: 'custom label'
-  }, {
-    id: 'e',
-    source: 'first',
-    target: 'd',
-    // label: 'custom label'
-  }, {
-    id: 'f',
-    source: 'd',
-    target: 'e',
-    // label: 'custom label'
+    id: 'E1',
+    source: 'N1',
+    target: 'N2',
+    label: 'c'
+  },
+  {
+    id: 'E2',
+    source: 'N2',
+    target: 'N3',
+    label: 'c'
+  },
+  {
+    id: 'E3',
+    source: 'N2',
+    target: 'N4',
+    label: 'c'
+  },
+  {
+    id: 'E4',
+    source: 'N2',
+    target: 'N5',
+    label: 'c'
   }
 ]

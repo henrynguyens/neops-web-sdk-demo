@@ -13,12 +13,13 @@ import {
 } from "carbon-components-angular";
 import {
   AddModule,
-  AppSwitcherModule, Data_2Module, DeployModule,
+  AppSwitcherModule, Data_2Module, DataBaseModule, DeployModule, LocationModule,
   LogoutModule,
   MenuModule,
-  NotificationModule, PlayModule, RunModule, SaveModule, TextLineSpacingModule,
+  NotificationModule, PlayModule, RunModule, SaveModule, ScanModule, TextLineSpacingModule,
   UserAvatarModule, UserModule, WikisModule
 } from "@carbon/icons-angular";
+import {CommonModule} from "@angular/common";
 
 
 
@@ -28,6 +29,10 @@ import {
     NetworkDiagramComponent
   ],
   imports: [
+    // angular
+
+    CommonModule,
+
     // carbon
 
     CardNodeModule,
@@ -59,7 +64,9 @@ import {
     Data_2Module,
     UserModule,
     WikisModule,
-
+    LocationModule,
+    ScanModule,
+    DataBaseModule,
 
     // other
 

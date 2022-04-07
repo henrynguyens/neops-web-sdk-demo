@@ -37,16 +37,29 @@
     </ng-template>
 
     <ng-template #nodeTemplate let-node>
-      <foreignObject [attr.x]="10" [attr.y]="(- node.dimension.height / 2) + 10" [attr.width]="node.dimension.width" [attr.height]="node.dimension.height + 10" [attr.transform]="'translate(0, 16)'" style="overflow: visible">
+      <foreignObject [attr.x]="10" [attr.y]="(- node.dimension.height / 2) + 14" [attr.width]="node.dimension.width" [attr.height]="node.dimension.height + 10" [attr.transform]="'translate(0, 16)'" style="overflow: visible">
         <div>
-          <ibm-diagram-card-node (click)="this.nodeClick($event, node)" as="button" [color]="node.color || 'black'"
+          <ibm-diagram-card-node (click)="this.nodeClick($event, node)" as="button" [color]="node.color || 'black'" (mouseEnter)="mouseEnterNode(node)" (mouseleave)="mouseLeaveNode(node)"
           >
             <ibm-diagram-card-node-column>
-              <svg ibmIconUser size="20"></svg>
-            </ibm-diagram-card-node-column>
-            <ibm-diagram-card-node-column>
               <ibm-diagram-card-node-title>{{node.label}}</ibm-diagram-card-node-title>
-              <ibm-diagram-card-node-subtitle>Description</ibm-diagram-card-node-subtitle>
+              <ng-container *ngIf="node.location">
+                <ibm-diagram-card-node-subtitle [ibmTooltip]="node.location.tooltip" trigger="hover"><svg ibmIconLocation size="16"></svg> {{node.location.label}} </ibm-diagram-card-node-subtitle>
+              </ng-container>
+              <ng-container *ngIf="node.rack">
+                <ibm-diagram-card-node-subtitle [ibmTooltip]="node.rack.tooltip" trigger="hover"><svg ibmIconDataBase size="16"></svg> {{node.rack.label}}</ibm-diagram-card-node-subtitle>
+              </ng-container>
+              <ng-container *ngIf="node.serialNr">
+                <ibm-diagram-card-node-subtitle [ibmTooltip]="node.serialNr.tooltip" trigger="hover">
+                  <svg ibmIconScan size="16"></svg>
+                  <ng-container *ngIf="node.serialNr.actionRequired">
+                    <a (click)="node.serialNr.onClick(node)">Click to set serials</a>
+                  </ng-container>
+                  <ng-container *ngIf="!(node.serialNr.actionRequired)">
+                    {{node.serialNr.label}}
+                  </ng-container>
+                </ibm-diagram-card-node-subtitle>
+              </ng-container>
             </ibm-diagram-card-node-column>
           </ibm-diagram-card-node>
         </div>

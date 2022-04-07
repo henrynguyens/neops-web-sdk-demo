@@ -15,17 +15,19 @@
         <button ibmButton="secondary" (click)="updateGraph()">Update</button>
       </ibm-button-set>
 
-      <h3>Control Data</h3>
-      <p>
-        Nodes: {{this.networkDiagramControl.nodes | json}}
-      </p>
-      <p>
-        Edges: {{this.networkDiagramControl.links | json}}
-      </p>
-      <p>
-        Clusters: {{this.networkDiagramControl.clusters | json}}
-      </p>
+<!--      <h3>Control Data</h3>-->
+<!--      <p>-->
+<!--        Nodes: {{this.networkDiagramControl.nodes | json}}-->
+<!--      </p>-->
+<!--      <p>-->
+<!--        Edges: {{this.networkDiagramControl.links | json}}-->
+<!--      </p>-->
+<!--      <p>-->
+<!--        Clusters: {{this.networkDiagramControl.clusters | json}}-->
+<!--      </p>-->
     </div>
+    </div>
+    <div ibmRow>
     <div ibmCol>
       <neops-network-diagram [networkDiagramControl]="networkDiagramControl"></neops-network-diagram>
     </div>
