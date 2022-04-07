@@ -114,68 +114,6 @@
         }
       }
     },
-    "@zebbra/ngx-neops-dashboard": {
-      "projectType": "library",
-      "root": "projects/zebbra/ngx-neops-dashboard",
-      "sourceRoot": "projects/zebbra/ngx-neops-dashboard/src",
-      "prefix": "neops",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/zebbra/ngx-neops-dashboard/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/zebbra/ngx-neops-dashboard/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/zebbra/ngx-neops-dashboard/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/zebbra/ngx-neops-dashboard/src/test.ts",
-            "tsConfig": "projects/zebbra/ngx-neops-dashboard/tsconfig.spec.json",
-            "karmaConfig": "projects/zebbra/ngx-neops-dashboard/karma.conf.js"
-          }
-        }
-      }
-    },
-    "@zebbra/ngx-neops-generic-table": {
-      "projectType": "library",
-      "root": "projects/zebbra/ngx-neops-generic-table",
-      "sourceRoot": "projects/zebbra/ngx-neops-generic-table/src",
-      "prefix": "neops",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/zebbra/ngx-neops-generic-table/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/zebbra/ngx-neops-generic-table/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/zebbra/ngx-neops-generic-table/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/zebbra/ngx-neops-generic-table/src/test.ts",
-            "tsConfig": "projects/zebbra/ngx-neops-generic-table/tsconfig.spec.json",
-            "karmaConfig": "projects/zebbra/ngx-neops-generic-table/karma.conf.js"
-          }
-        }
-      }
-    },
     "@zebbra/ngx-neops-client": {
       "projectType": "library",
       "root": "projects/zebbra/ngx-neops-client",

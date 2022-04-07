@@ -136,25 +136,3 @@ steps:
       registry: "https://npm.pkg.github.com"
       folder: dist/zebbra/ngx-neops-client
     depends_on: [make]
-
-  - name: ngx-neops-dashboard
-    image: plugins/npm
-    settings:
-      username: { from_secret: npm_username }
-      password: { from_secret: npm_password }
-      token: { from_secret: npm_token }
-      email: release@neops.io
-      registry: "https://npm.pkg.github.com"
-      folder: dist/zebbra/ngx-neops-dashboard
-    depends_on: [make]
-
-  - name: ngx-neops-generic-table
-    image: plugins/npm
-    settings:
-      username: { from_secret: npm_username }
-      password: { from_secret: npm_password }
-      token: { from_secret: npm_token }
-      email: release@neops.io
-      registry: "https://npm.pkg.github.com"
-      folder: dist/zebbra/ngx-neops-generic-table
-    depends_on: [make]
