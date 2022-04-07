@@ -5,6 +5,8 @@ export interface NetworkNode extends Node{
   location?: NodeColumnDefinition
   rack?: NodeColumnDefinition
   serialNr?: NodeColumnActionDefinition
+  activated?: boolean
+
 }
 
 export interface NodeColumnDefinition {

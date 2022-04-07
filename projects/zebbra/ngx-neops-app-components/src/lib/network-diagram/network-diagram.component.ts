@@ -4,6 +4,7 @@ import {DagreClusterLayout, MiniMapPosition} from "@swimlane/ngx-graph";
 import {curveStepAfter} from "d3-shape";
 import {Subject} from "rxjs";
 import {Node} from "@swimlane/ngx-graph/lib/models/node.model";
+import {NetworkNode} from "./model/NetworkNode";
 
 @Component({
   selector: 'neops-network-diagram',
@@ -23,7 +24,7 @@ export class NetworkDiagramComponent implements OnInit {
 
   layout: DagreClusterLayout = new DagreClusterLayout();
   panOnZoom: boolean = true;
-  draggingEnabled = true;
+  draggingEnabled = false;
   panningEnabled = true;
   zoomEnabled = true;
   zoomSpeed = 0.1;
@@ -56,5 +57,29 @@ export class NetworkDiagramComponent implements OnInit {
   nodeClick($event: Event, node: Node) {
     alert("Node clicked: " + node.id)
     $event.stopPropagation();
+  }
+
+  mouseEnterNode(node: NetworkNode) {
+    // const edges = this.control.links.filter(edge => edge.source == node.id)
+    // edges.forEach(edge => edge.activated = true)
+    //
+    // const nodes = edges.map(e => this.control.nodes.find(n => n.id == e.target))
+    //
+    // nodes.forEach(n => n ? n.activated = true : '')
+    // node.activated = true
+
+    // use rxjs to make it detect on other nodes too
+    node.activated = true
+    // this.updateGraph.next(true)
+  }
+
+  mouseLeaveNode(node: NetworkNode) {
+    // this.control.links.forEach(link => link.activated = false)
+    //
+    // this.control.nodes.forEach(n => n.activated = false)
+
+    // use rxjs to make it detect on other nodes too
+    node.activated = false;
+    // this.updateGraph.next(true)
   }
 }

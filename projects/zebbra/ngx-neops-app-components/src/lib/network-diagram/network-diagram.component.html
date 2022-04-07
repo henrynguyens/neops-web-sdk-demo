@@ -39,7 +39,12 @@
     <ng-template #nodeTemplate let-node>
       <foreignObject [attr.x]="10" [attr.y]="(- node.dimension.height / 2) + 14" [attr.width]="node.dimension.width" [attr.height]="node.dimension.height + 10" [attr.transform]="'translate(0, 16)'" style="overflow: visible">
         <div>
-          <ibm-diagram-card-node (click)="this.nodeClick($event, node)" as="button" [color]="node.color || 'black'" (mouseEnter)="mouseEnterNode(node)" (mouseleave)="mouseLeaveNode(node)"
+          <ibm-diagram-card-node
+            (click)="this.nodeClick($event, node)"
+            as="button"
+            [color]="node.activated ? 'grey' : (node.color || 'black')"
+            (mouseEnter)="mouseEnterNode(node)"
+            (mouseleave)="mouseLeaveNode(node)"
           >
             <ibm-diagram-card-node-column>
               <ibm-diagram-card-node-title>{{node.label}}</ibm-diagram-card-node-title>
@@ -53,7 +58,7 @@
                 <ibm-diagram-card-node-subtitle [ibmTooltip]="node.serialNr.tooltip" trigger="hover">
                   <svg ibmIconScan size="16"></svg>
                   <ng-container *ngIf="node.serialNr.actionRequired">
-                    <a (click)="node.serialNr.onClick(node)">Click to set serials</a>
+                    <a (click)="node.serialNr.onClick(node); $event.stopPropagation()">Click to set serials</a>
                   </ng-container>
                   <ng-container *ngIf="!(node.serialNr.actionRequired)">
                     {{node.serialNr.label}}
