@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import {
   ButtonModule,
-  DialogModule, GridModule,
-  IconModule, InputModule, NotificationDisplayService, NotificationService, NumberModule, PaginationModule,
-  TableModule, TilesModule,
-  UIShellModule
+  DialogModule,
+  GridModule,
+  IconModule,
+  InputModule,
+  NotificationDisplayService,
+  NotificationService,
+  NumberModule,
+  PaginationModule,
+  RadioModule,
+  TableModule,
+  TilesModule,
+  UIShellModule,
 } from 'carbon-components-angular';
 
 @NgModule({
@@ -18,13 +26,11 @@ import {
     InputModule,
     TilesModule,
     GridModule,
-    NumberModule
+    NumberModule,
+    RadioModule,
   ],
-  providers: [
-    NotificationService,
-    NotificationDisplayService
-  ]
+  providers: [NotificationService, NotificationDisplayService],
 })
 export class AppCarbonModule {
-  constructor() { }
+  constructor() {}
 }

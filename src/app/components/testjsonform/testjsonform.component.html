@@ -1,0 +1,30 @@
+<div ibmGrid>
+  <h1>Status Card</h1>
+  <div ibmRow>
+    <div ibmCol [columnNumbers]="{ lg: 4, md: 4 }">
+      <status-card
+        cardTitle="Firewall"
+        stats="2"
+        statsDescription="Catalyst 9210 AP"
+        tooltip="Icon Info"
+        [progress]="[
+          { value: 5, tooltip: 'Success' },
+          { value: 7, tooltip: 'Warning' },
+          { value: 3, tooltip: 'Error' }
+        ]"
+      >
+        <ibm-icon-information size="16"></ibm-icon-information>
+      </status-card>
+    </div>
+  </div>
+
+  <jsonforms
+    [data]="data"
+    [schema]="schema"
+    [uischema]="uischema"
+    [renderers]="carbonControlRenderers"
+    (dataChange)="onDateChange($event)"
+  ></jsonforms>
+
+  <pre>{{ dataShowUI }}</pre>
+</div>

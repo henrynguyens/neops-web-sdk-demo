@@ -40,7 +40,10 @@
     "ngx-monaco-editor": "^12.0.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@carbon/colors": "10.29.0",
+    "@carbon/icons": "^11.0.1",
+    "@jsonforms/angular-material": "^3.0.0-beta.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.1.4",

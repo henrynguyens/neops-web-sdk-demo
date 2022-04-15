@@ -14,26 +14,31 @@ import { TasksPageComponent } from './components/pages/tasks-page/tasks-page.com
 import { ConfigurationPageComponent } from './components/pages/configuration-page/configuration-page.component';
 import { HelpPageComponent } from './components/pages/help-page/help-page.component';
 import { HeaderComponent } from './components/header/header.component';
-import {AppCarbonModule} from "./app-carbon-module";
+import { AppCarbonModule } from './app-carbon-module';
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { IndexPageComponent } from './components/pages/index-page/index-page.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { EditorComponent } from './components/editor/editor.component';
-import {MonacoEditorModule} from "ngx-monaco-editor";
-import {JsonformComponent} from "./components/jsonform/jsonform.component";
-import {JsonFormsModule} from "@jsonforms/angular";
-import {DragDropModule} from "@angular/cdk/drag-drop";
+import { MonacoEditorModule } from 'ngx-monaco-editor';
+import { JsonformComponent } from './components/jsonform/jsonform.component';
+import { JsonFormsModule } from '@jsonforms/angular';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DragDropGridComponent } from './components/drag-drop-grid/drag-drop-grid.component';
-import {GridsterModule} from "angular-gridster2";
+import { GridsterModule } from 'angular-gridster2';
 import { GenericTableComponent } from './components/generic-table/generic-table.component';
-import {AppCarbonIconsModule} from "./app-carbon-icons-module";
+import { AppCarbonIconsModule } from './app-carbon-icons-module';
 import { NetworkDiagramPageComponent } from './components/pages/network-diagram-page/network-diagram-page.component';
-import {NgxGraphModule} from "@swimlane/ngx-graph";
-import {CardNodeModule, EdgeModule} from '@carbon/charts-angular';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {NgxNeopsAppComponentsModule} from "@zebbra/ngx-neops-app-components";
+import { NgxGraphModule } from '@swimlane/ngx-graph';
+import { CardNodeModule, EdgeModule } from '@carbon/charts-angular';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxNeopsAppComponentsModule } from '@zebbra/ngx-neops-app-components';
+import { TestjsonformComponent } from './components/testjsonform/testjsonform.component';
+import { InputTextControlRendererComponent } from './components/testjsonform/carbon-control-renderer/inputText-control-renderer.component';
+import { RadioControlRendererComponent } from './components/testjsonform/carbon-control-renderer/radio-control-renderer.component';
+import { InformationModule } from '@carbon/icons-angular';
+import { StatusCardModule } from './components/status-card/status-card.module';
 
 @NgModule({
   declarations: [
@@ -53,7 +58,10 @@ import {NgxNeopsAppComponentsModule} from "@zebbra/ngx-neops-app-components";
     JsonformComponent,
     DragDropGridComponent,
     GenericTableComponent,
-    NetworkDiagramPageComponent
+    NetworkDiagramPageComponent,
+    TestjsonformComponent,
+    InputTextControlRendererComponent,
+    RadioControlRendererComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +76,7 @@ import {NgxNeopsAppComponentsModule} from "@zebbra/ngx-neops-app-components";
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
     MonacoEditorModule.forRoot(),
     JsonFormsModule,
@@ -77,9 +85,12 @@ import {NgxNeopsAppComponentsModule} from "@zebbra/ngx-neops-app-components";
     NgxGraphModule,
     CardNodeModule,
     EdgeModule,
-    NgxNeopsAppComponentsModule
+    NgxNeopsAppComponentsModule,
+    ReactiveFormsModule,
+    InformationModule,
+    StatusCardModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
